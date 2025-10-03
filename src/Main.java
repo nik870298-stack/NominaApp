@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
-
+      menuNomina();
     }
 
 
@@ -66,6 +65,7 @@ public class Main {
                     System.out.println("La nomina total de todos los empelados es de: " +total);
                     break;
                 case 5:
+
                     break;
                 case 6:
                     break;
