@@ -30,22 +30,38 @@ public class Vendedor extends Empleado {
         this.porcentajeComision = porcentajeComision;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "Vendedor{" +
+                "ventasMensuales=" + ventasMensuales +
+                ", porcentajeComision=" + porcentajeComision +
+                '}';
+    }
+
 
     //METODOS PROPIOS
 
     //METODO CALDULAR BONIFICACION POR META
 
     public double calcularBonificacionPorMeta(){
-
+        if (ventasMensuales>5000000){
+            double bono = ventasMensuales*0.10;
+            System.out.println("Su bonificacion por ventas es de: " + bono);
+        }
         return 0;
     }
 
     //METODO CALCULAR SALARIO (SOBRE ESCRITO)
 
-
-
+    @Override
     public double calcularSalario() {
         double salarioTotal = salarioBase + (ventasMensuales * porcentajeComision) + calcularBonificacionPorMeta();
-        return salarioTotal;
+        return + salarioTotal;
+    }
+
+
+    @Override
+    public String mostrasInfo(){
+        return "SOY UN VENDEDOR: " + " ID: " + id + " Nombre: " + nombre + " SalarioBase: " + salarioBase + " Ventas Mensuales: " + " Porcentaje de Comision: " + porcentajeComision;
     }
 }

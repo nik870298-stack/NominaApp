@@ -28,6 +28,14 @@ public class Gerente extends Empleado{
         this.empleadosACargo = empleadosACargo;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "Gerente{" +
+                "bonoFijo=" + bonoFijo +
+                ", empleadosACargo=" + empleadosACargo +
+                '}';
+    }
+
 
     //METODOS PROPIOS
 
@@ -35,8 +43,23 @@ public class Gerente extends Empleado{
 
     public double calcularIncentivoLiderazgo(){
         if(empleadosACargo>10){
-            double incentivo = (salarioBase);
+            double incentivo = (salarioBase*0.5);
+            System.out.println(incentivo);
         }
         return 0;
+    }
+
+
+    //METODO CALCULAR SALARIO
+    @Override
+    public double calcularSalario(){
+        double salarioTotal = salarioBase + bonoFijo + calcularIncentivoLiderazgo();
+        return +salarioTotal;
+    }
+
+    @Override
+    //METODO MOSTRAR INFORMACION
+    public String mostrasInfo(){
+        return "SOY GERENTE: " + " ID: " + id + " Nombre: " + nombre + " SalarioBase: " + salarioBase + " Bono Fijo: " + bonoFijo + " Empleados a su cargo: " + empleadosACargo;
     }
 }
